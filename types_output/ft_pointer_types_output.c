@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_pointer_types_output.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/08 14:15:36 by larlena           #+#    #+#             */
-/*   Updated: 2020/11/27 20:09:30 by larlena          ###   ########.fr       */
+/*   Created: 2020/11/27 18:42:33 by larlena           #+#    #+#             */
+/*   Updated: 2020/11/27 21:17:45 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../ft_printf.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+int		ft_pointer_types_output(void *p, t_printf *all)
 {
-	char	*dst;
-	size_t	len1;
-	size_t	len2;
+	unsigned long	p_d;
+	size_t			i;
+	char			*dst;
+	char			*buf;
 
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	if ((dst = ft_calloc(sizeof(char), len1 + len2 + 1)) == NULL)
-		return (NULL);
-	ft_strlcpy(dst, s1, len1 + 1);
-	ft_strlcat(dst, s2, len1 + len2 + 1);
-	free(s2);
-	return (dst);
+	i = 2;
+	p_d = (unsigned long)p;
+	if (!(dst = ft_strjoin("0x", ft_itoa(p_d, 16))))
+		return (1);
+	while (dst[i])
+	{
+		if (!ft_isalnum(dst[i]))
+			dst[i] += 39;
+		i++;
+	}
+
+	return (0);
 }

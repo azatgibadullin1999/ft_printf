@@ -6,7 +6,7 @@
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 17:51:31 by larlena           #+#    #+#             */
-/*   Updated: 2020/11/26 00:15:23 by larlena          ###   ########.fr       */
+/*   Updated: 2020/11/27 19:00:53 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct	s_pritnf
 	size_t		str_size;
 	int			f_minus;
 	int			f_zero;
+	int			f_dot;
 	int			width;
 	int			presigion;
 }				t_printf;
@@ -38,6 +39,8 @@ int				ft_flags_parsing(const char *format, t_printf *all);
 int				ft_widths_parsing(const char *format, t_printf *all);
 int				ft_presigions_parsing(const char *format, t_printf *all);
 int				ft_arg_type_parsing(const char *format, t_printf *all);
-int				ft_c_types_output(int c, t_printf *all);
+int				ft_char_types_output(int c, t_printf *all);
+int				ft_str_types_output(char *str, t_printf *all);
+int				ft_pointer_types_output(void *p, t_printf *all);
 
 #endif

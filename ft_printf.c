@@ -6,7 +6,7 @@
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 17:09:38 by larlena           #+#    #+#             */
-/*   Updated: 2020/11/26 00:15:07 by larlena          ###   ########.fr       */
+/*   Updated: 2020/11/27 18:30:23 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int		ft_zeroing_struct(t_printf *all)
 {
 	all->f_minus = 0;
 	all->f_zero = 0;
+	all->f_dot = 0;
 	all->presigion = 0;
 	all->width = 0;
 	return (0);

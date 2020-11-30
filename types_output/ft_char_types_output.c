@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_c_types_output.c                                :+:      :+:    :+:   */
+/*   ft_char_types_output.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 22:06:40 by larlena           #+#    #+#             */
-/*   Updated: 2020/11/26 00:26:17 by larlena          ###   ########.fr       */
+/*   Updated: 2020/11/27 19:33:27 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int		ft_c_types_output(int c, t_printf *all)
+int		ft_char_types_output(int c, t_printf *all)
 {
 	size_t	ar_size;
 	char	*str;
@@ -26,12 +26,12 @@ int		ft_c_types_output(int c, t_printf *all)
 	{
 		str[ar_size - 1] = (char)c;
 		ft_putstr_fd(str, FD_TERM);
-		return (0);
 	}
 	else
 	{
 		str[0] = c;
 		ft_putstr_fd(str, FD_TERM);
-		return (0);
 	}
+	free(str);
+	return (0);
 }
