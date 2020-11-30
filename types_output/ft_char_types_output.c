@@ -6,13 +6,25 @@
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 22:06:40 by larlena           #+#    #+#             */
-/*   Updated: 2020/11/27 19:33:27 by larlena          ###   ########.fr       */
+/*   Updated: 2020/11/30 13:38:26 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int		ft_char_types_output(int c, t_printf *all)
+static void		ft_castom_putstr_fd(char *str, int fd, size_t len)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < len)
+	{
+		ft_putchar_fd(str[i], fd);
+		i++;
+	}
+}
+
+int				ft_char_types_output(int c, t_printf *all)
 {
 	size_t	ar_size;
 	char	*str;
@@ -24,13 +36,13 @@ int		ft_char_types_output(int c, t_printf *all)
 	ft_memset(str, ' ', ar_size);
 	if (all->f_minus)
 	{
-		str[ar_size - 1] = (char)c;
-		ft_putstr_fd(str, FD_TERM);
+		str[0] = c;
+		ft_castom_putstr_fd(str, FD_TERM, ar_size);
 	}
 	else
 	{
-		str[0] = c;
-		ft_putstr_fd(str, FD_TERM);
+		str[ar_size - 1] = (char)c;
+		ft_castom_putstr_fd(str, FD_TERM, ar_size);
 	}
 	free(str);
 	return (0);

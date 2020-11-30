@@ -6,7 +6,7 @@
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 17:51:31 by larlena           #+#    #+#             */
-/*   Updated: 2020/11/27 19:00:53 by larlena          ###   ########.fr       */
+/*   Updated: 2020/11/30 15:20:36 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ int				ft_arg_type_parsing(const char *format, t_printf *all);
 int				ft_char_types_output(int c, t_printf *all);
 int				ft_str_types_output(char *str, t_printf *all);
 int				ft_pointer_types_output(void *p, t_printf *all);
+int				ft_int_types_output(int n, t_printf *all);
 
 #endif

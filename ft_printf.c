@@ -6,7 +6,7 @@
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 17:09:38 by larlena           #+#    #+#             */
-/*   Updated: 2020/11/27 18:30:23 by larlena          ###   ########.fr       */
+/*   Updated: 2020/11/30 13:48:11 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int		ft_printf(const char *format, ...)
 {
-	size_t		i;
 	t_printf	all;
 
 	all.i = 0;

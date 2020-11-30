@@ -132,14 +132,14 @@ int	main(void)
 	ft_printf("12) my       PRINTF : |%10p|\n", NULL);
 	printf("13) standart PRINTF : |%-10p|\n", NULL);
 	ft_printf("13) my       PRINTF : |%-10p|\n", NULL);
-	printf("14) standart PRINTF : |%.1p|\n", tab);
-	ft_printf("14) my       PRINTF : |%.1p|\n", tab);
-	printf("15) standart PRINTF : |%10.2p|\n", NULL);
-	ft_printf("15) my       PRINTF : |%10.2p|\n", NULL);
-	printf("16) standart PRINTF : |%2.5p|\n", NULL);
-	ft_printf("16) my       PRINTF : |%2.5p|\n", NULL);
-	printf("17) standart PRINTF : |%-10.2p|\n", NULL);
-	ft_printf("17) my       PRINTF : |%-10.2p|\n", NULL);
+	// printf("14) standart PRINTF : |%.1p|\n", tab);
+	// ft_printf("14) my       PRINTF : |%.1p|\n", tab);
+	// printf("15) standart PRINTF : |%10.2p|\n", NULL);
+	// ft_printf("15) my       PRINTF : |%10.2p|\n", NULL);
+	// printf("16) standart PRINTF : |%2.5p|\n", NULL);
+	// ft_printf("16) my       PRINTF : |%2.5p|\n", NULL);
+	// printf("17) standart PRINTF : |%-10.2p|\n", NULL);
+	// ft_printf("17) my       PRINTF : |%-10.2p|\n", NULL);
 	free(tab);
 	free(tab2);
 	ft_printf("----------------%%d-%%i--------------------\n");
@@ -201,8 +201,8 @@ int	main(void)
 	ft_printf("28) my       PRINTF : |%03.5d|\n", -5);
 	printf("29) standart PRINTF : |%d| |%d|\n", INT_MAX, INT_MIN);
 	ft_printf("29) my       PRINTF : |%d| |%d|\n", INT_MAX, INT_MIN);
-	printf("30) standart PRINTF : |%d| |%d|\n", INT_MAX + 1, INT_MIN - 1);
-	ft_printf("30) my       PRINTF : |%d| |%d|\n", INT_MAX + 1, INT_MIN - 1);
+	// printf("30) standart PRINTF : |%d| |%d|\n", INT_MAX + 1, INT_MIN - 1);
+	// ft_printf("30) my       PRINTF : |%d| |%d|\n", INT_MAX + 1, INT_MIN - 1);
 	printf("31) standart PRINTF : |%.d|\n", 0);
 	ft_printf("31) my       PRINTF : |%.d|\n", 0);
 	printf("32) standart PRINTF : |%.d|\n", 100);
@@ -339,25 +339,25 @@ int	main(void)
 	ft_printf("02) my       PRINTF : |%-5%|\n");
 	printf("03) standart PRINTF : |%.0%|\n");
 	ft_printf("03) my       PRINTF : |%.0%|\n");
-	printf("04) standart PRINTF : |");
-	printf("kekw %Z");
-	printf("|\n");
-	ft_printf("04) my       PRINTF : |");
-	ft_printf("kekw %Z");
-	ft_printf("|\n");
-	printf("05) standart PRINTF : |");
-	int a = printf("%");
-	printf("|\n");
-	ft_printf("05) my       PRINTF : |");
-	int b = ft_printf("%");
-	ft_printf("|\n");
-	printf("06) standart PRINTF : |");
-	printf("%%%");
-	printf("|\n");
-	ft_printf("06) my       PRINTF : |");
-	ft_printf("%%%");
-	ft_printf("|\n\n");
-	ft_printf("return fr st PRINTF : %d\nreturn fr my PRINTF : %d\n\n", a, b);
+	// printf("04) standart PRINTF : |");
+	// printf("kekw %Z");
+	// printf("|\n");
+	// ft_printf("04) my       PRINTF : |");
+	// ft_printf("kekw %Z");
+	// ft_printf("|\n");
+	// printf("05) standart PRINTF : |");
+	// int a = printf("%");
+	// printf("|\n");
+	// ft_printf("05) my       PRINTF : |");
+	// int b = ft_printf("%");
+	// ft_printf("|\n");
+	// printf("06) standart PRINTF : |");
+	// printf("%%%");
+	// printf("|\n");
+	// ft_printf("06) my       PRINTF : |");
+	// ft_printf("%%%");
+	// ft_printf("|\n\n");
+	// ft_printf("return fr st PRINTF : %d\nreturn fr my PRINTF : %d\n\n", a, b);
 	ft_printf("%d\n", ft_printf("%d, ", ft_printf("kekw, ")));
 	ft_printf("--------------------%%kek------------------\n");
 	printf("01) standart PRINTF : |%.*s|\n", 5, "kekwait");
@@ -367,8 +367,8 @@ int	main(void)
 
 	printf("03) standart PRINTF : |%.d|\n", 0);
 	ft_printf("03) my       PRINTF : |%.*d|\n", 5, 0);
-	printf("04) standart PRINTF : |%0.3s|\n", "42");
-	ft_printf("04) my       PRINTF : |%0.3s|\n\n", "42");
+	// printf("04) standart PRINTF : |%0.3s|\n", "42");
+	// ft_printf("04) my       PRINTF : |%0.3s|\n\n", "42");
 
 	printf("01) standart PRINTF : |%.3X|\n", 17);
 	ft_printf("01) my       PRINTF : |%.3X|\n", 17);
@@ -376,4 +376,6 @@ int	main(void)
 
 	printf("04) standart PRINTF : |%10p|\n", "-42");
 	ft_printf("04) my       PRINTF : |%10p|\n", "-42");
+
+	return (0);
 }
