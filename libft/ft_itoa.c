@@ -6,17 +6,22 @@
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 15:15:42 by larlena           #+#    #+#             */
-/*   Updated: 2020/11/27 19:48:04 by larlena          ###   ########.fr       */
+/*   Updated: 2020/12/08 13:25:38 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_chr_count(unsigned long long n, int notation)
+size_t	ft_chr_count(long long n, int notation)
 {
 	size_t	i;
 
 	i = 0;
+	if (n < 0)
+	{
+		i++;
+		n = n * -1;
+	}
 	while (n >= notation)
 	{
 		n = n / notation;
@@ -25,7 +30,7 @@ size_t	ft_chr_count(unsigned long long n, int notation)
 	return (i + 1);
 }
 
-char	*ft_itoa(unsigned long long n, int notation)
+char	*ft_itoa(long long n, int notation)
 {
 	char	*dst;
 	size_t	i;
@@ -34,7 +39,12 @@ char	*ft_itoa(unsigned long long n, int notation)
 	if ((dst = ft_calloc(sizeof(char), i + 1)) == NULL)
 		return (NULL);
 	i--;
-	while (n >= 10)
+	if (n < 0)
+	{
+		dst[0] = '-';
+		n = n * -1;
+	}
+	while (n >= notation)
 	{
 		dst[i] = n % notation + '0';
 		n = n / notation;

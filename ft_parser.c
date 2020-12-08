@@ -6,7 +6,7 @@
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 20:03:10 by larlena           #+#    #+#             */
-/*   Updated: 2020/11/27 19:00:32 by larlena          ###   ########.fr       */
+/*   Updated: 2020/12/08 12:24:53 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int		ft_arg_type_parsing(const char *format, t_printf *all)
 	else if (format[all->i] == 'p')
 		return (ft_pointer_types_output(va_arg(all->ap, void *), all));
 	else if (format[all->i] == 'd')
-		return (0);
+		return (ft_int_types_output(va_arg(all->ap, int), all));
 	else if (format[all->i] == 'i')
-		return (0);
+		return (ft_int_types_output(va_arg(all->ap, int), all));
 	else if (format[all->i] == 'u')
 		return (0);
 	else if (format[all->i] == 'x')

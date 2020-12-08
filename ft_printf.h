@@ -6,7 +6,7 @@
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 17:51:31 by larlena           #+#    #+#             */
-/*   Updated: 2020/11/30 15:20:36 by larlena          ###   ########.fr       */
+/*   Updated: 2020/12/08 12:19:10 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct	s_pritnf
 	va_list		ap;
 	size_t		i;
 	size_t		str_size;
+	size_t		num_len;	
 	int			f_minus;
 	int			f_zero;
 	int			f_dot;
