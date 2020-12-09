@@ -1,45 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_int_types_output.c                              :+:      :+:    :+:   */
+/*   ft_hex_types_output.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 15:17:49 by larlena           #+#    #+#             */
-/*   Updated: 2020/12/09 14:46:51 by larlena          ###   ########.fr       */
+/*   Created: 2020/12/08 15:18:10 by larlena           #+#    #+#             */
+/*   Updated: 2020/12/09 14:45:16 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static void		ft_insert_minus(char *dst, t_printf *all)
+static void		ft_str_toupper(char *dst)
 {
 	size_t	i;
 
 	i = 0;
-	while (!ft_isdigit(dst[i]))
+	while (dst[i])
+	{
+		dst[i] = ft_toupper(dst[i]);
 		i++;
-	if (i == 0 || !all->f_dot)
-		dst[i] = '-';
-	else
-		dst[i - 1] = '-';
+	}
 }
 
 static void		ft_filling_array(char *dst, char *num, t_printf *all)
 {
 	size_t	num_size;
 	size_t	dst_size;
-	int		f_minus;
 
 	dst_size = ft_strlen(dst);
 	num_size = all->presigion > ft_strlen(num) ?
 	all->presigion : ft_strlen(num);
-	f_minus = 0;
-	if (*num == '-')
-	{
-		num++;
-		f_minus = 1;
-	}
 	if (all->f_minus && all->width)
 	{
 		ft_memset(dst, '0', num_size);
@@ -50,8 +42,6 @@ static void		ft_filling_array(char *dst, char *num, t_printf *all)
 		ft_memset(&dst[dst_size - num_size], '0', num_size);
 		ft_memcpy(&dst[dst_size - ft_strlen(num)], num, ft_strlen(num));
 	}
-	if (f_minus)
-		ft_insert_minus(dst, all);
 }
 
 static char		*ft_counting_dst_len(char *num, t_printf *all)
@@ -63,8 +53,6 @@ static char		*ft_counting_dst_len(char *num, t_printf *all)
 	len = ft_strlen(num);
 	dst_len = len > all->presigion ? len : all->presigion;
 	dst_len = all->width > dst_len ? all->width : dst_len;
-	dst_len += all->presigion > all->width &&
-	len <= all->presigion && *num == '-' ? 1 : 0;
 	if (!(dst = malloc(sizeof(char) * (dst_len + 1))))
 		return (NULL);
 	dst[dst_len] = '\0';
@@ -75,12 +63,28 @@ static char		*ft_counting_dst_len(char *num, t_printf *all)
 	return (dst);
 }
 
-int				ft_int_types_output(int n, t_printf *all)
+static int		ft_convert_to_hex(char **num, unsigned int n)
 {
-	char	*num;
-	char	*dst;
+	size_t	i;
 
-	if (!(num = ft_itoa(n, 10)))
+	i = 0;
+	if (!(*num = ft_itoa(n, 16)))
+		return (1);
+	while ((*num)[i])
+	{
+		if (!ft_isdigit((*num)[i]))
+			(*num)[i] += 39;
+		i++;
+	}
+	return (0);
+}
+
+int				ft_hex_types_output(unsigned int n, int reg, t_printf *all)
+{
+	char	*dst;
+	char	*num;
+
+	if (ft_convert_to_hex(&num, n))
 		return (1);
 	if (!(dst = ft_counting_dst_len(num, all)))
 	{
@@ -88,8 +92,8 @@ int				ft_int_types_output(int n, t_printf *all)
 		return (1);
 	}
 	ft_filling_array(dst, num, all);
+	if (reg)
+		ft_str_toupper(dst);
 	ft_putstr_fd(dst, FD_TERM);
-	free(num);
-	free(dst);
 	return (0);
 }

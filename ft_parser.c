@@ -6,7 +6,7 @@
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 20:03:10 by larlena           #+#    #+#             */
-/*   Updated: 2020/12/08 12:24:53 by larlena          ###   ########.fr       */
+/*   Updated: 2020/12/09 14:59:19 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,14 @@ int		ft_arg_type_parsing(const char *format, t_printf *all)
 	else if (format[all->i] == 'i')
 		return (ft_int_types_output(va_arg(all->ap, int), all));
 	else if (format[all->i] == 'u')
-		return (0);
+		return (ft_unsigned_types_output(va_arg(all->ap, unsigned int), all));
 	else if (format[all->i] == 'x')
-		return (0);
+		return (ft_hex_types_output(va_arg(all->ap, unsigned int), 0, all));
 	else if (format[all->i] == 'X')
-		return (0);
+		return (ft_hex_types_output(va_arg(all->ap, unsigned int), 1, all));
 	else if (format[all->i] == '%')
 	{
-		ft_putchar_fd('%', 1);
-		all->i++;
+		ft_putchar_fd('%', FD_TERM);
 		return (0);
 	}
 	else

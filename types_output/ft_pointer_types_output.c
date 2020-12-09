@@ -6,13 +6,13 @@
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 18:42:33 by larlena           #+#    #+#             */
-/*   Updated: 2020/11/30 15:14:25 by larlena          ###   ########.fr       */
+/*   Updated: 2020/12/09 14:47:41 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int		ft_convert_to_hex(char **dst, unsigned long p_d)
+static int		ft_convert_to_hex(char **dst, unsigned long p_d)
 {
 	size_t			i;
 	char			*tmp;
@@ -31,7 +31,7 @@ int		ft_convert_to_hex(char **dst, unsigned long p_d)
 	return (0);
 }
 
-int		ft_pointer_types_output(void *p, t_printf *all)
+int				ft_pointer_types_output(void *p, t_printf *all)
 {
 	unsigned long	p_d;
 	size_t			size;

@@ -6,7 +6,7 @@
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 17:51:31 by larlena           #+#    #+#             */
-/*   Updated: 2020/12/08 12:19:10 by larlena          ###   ########.fr       */
+/*   Updated: 2020/12/09 14:45:16 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,7 @@ int				ft_char_types_output(int c, t_printf *all);
 int				ft_str_types_output(char *str, t_printf *all);
 int				ft_pointer_types_output(void *p, t_printf *all);
 int				ft_int_types_output(int n, t_printf *all);
+int				ft_hex_types_output(unsigned int n, int reg, t_printf *all);
+int				ft_unsigned_types_output(unsigned int n, t_printf *all);
 
 #endif
