@@ -6,14 +6,13 @@
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 17:51:31 by larlena           #+#    #+#             */
-/*   Updated: 2020/12/09 14:45:16 by larlena          ###   ########.fr       */
+/*   Updated: 2020/12/13 18:21:08 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF
-# define FT_PRINTF
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-# include "./libft/libft.h"
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
@@ -46,5 +45,20 @@ int				ft_pointer_types_output(void *p, t_printf *all);
 int				ft_int_types_output(int n, t_printf *all);
 int				ft_hex_types_output(unsigned int n, int reg, t_printf *all);
 int				ft_unsigned_types_output(unsigned int n, t_printf *all);
+
+int				ft_atoi(const char *str);
+void			*ft_calloc(size_t count, size_t size);
+int				ft_isdigit(int c);
+char			*ft_itoa(long long n, int notation);
+void			*ft_memcpy(void *dst, const void *src, size_t n);
+void			*ft_memset(void *b, int c, size_t len);
+void			ft_putchar_fd(char c, int fd);
+void			ft_putstr_fd(char *s, int fd);
+char			*ft_strdup(const char *s1);
+char			*ft_strjoin(char *s1, char *s2);
+size_t			ft_strlcat(char *dst, const char *src, size_t dstsize);
+size_t			ft_strlcpy(char *dst, const char *src, size_t dstsize);
+size_t			ft_strlen(const char *s);
+int				ft_toupper(int c);
 
 #endif

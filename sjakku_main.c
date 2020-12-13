@@ -377,5 +377,8 @@ int	main(void)
 	printf("04) standart PRINTF : |%10p|\n", "-42");
 	ft_printf("04) my       PRINTF : |%10p|\n", "-42");
 
+	while (1)
+		;
+
 	return (0);
 }
