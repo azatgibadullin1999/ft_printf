@@ -6,7 +6,7 @@
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:18:10 by larlena           #+#    #+#             */
-/*   Updated: 2020/12/13 16:08:21 by larlena          ###   ########.fr       */
+/*   Updated: 2020/12/14 13:46:45 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ int				ft_hex_types_output(unsigned int n, int reg, t_printf *all)
 {
 	char	*dst;
 	char	*num;
+	char	*tmp;
 
 	if (ft_convert_to_hex(&num, n))
 		return (1);
@@ -94,7 +95,13 @@ int				ft_hex_types_output(unsigned int n, int reg, t_printf *all)
 	ft_filling_array(dst, num, all);
 	if (reg)
 		ft_str_toupper(dst);
+	if (all->f_dot && !all->presigion && !n)
+	{
+		tmp = ft_strchr(dst, '0');
+		*tmp = !all->width ? '\0' : ' ';
+	}
 	ft_putstr_fd(dst, FD_TERM);
+	all->str_size += ft_strlen(dst);
 	free(dst);
 	free(num);
 	return (0);

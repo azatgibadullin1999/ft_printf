@@ -6,7 +6,7 @@
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 20:03:10 by larlena           #+#    #+#             */
-/*   Updated: 2020/12/09 14:59:19 by larlena          ###   ########.fr       */
+/*   Updated: 2020/12/14 13:31:27 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,6 @@ int		ft_flags_parsing(const char *format, t_printf *all)
 			all->f_zero = 1;
 		all->i++;
 	}
-	if (all->f_minus && all->f_zero)
-		return (1);
 	return (0);
 }
 

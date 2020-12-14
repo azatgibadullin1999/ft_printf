@@ -6,7 +6,7 @@
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 18:42:33 by larlena           #+#    #+#             */
-/*   Updated: 2020/12/13 16:08:14 by larlena          ###   ########.fr       */
+/*   Updated: 2020/12/13 18:35:35 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int				ft_pointer_types_output(void *p, t_printf *all)
 	else
 		ft_memcpy(&tmp[size - ft_strlen(dst)], dst, ft_strlen(dst));
 	ft_putstr_fd(tmp, FD_TERM);
+	all->str_size += ft_strlen(tmp);
 	free(tmp);
 	free(dst);
 	return (0);

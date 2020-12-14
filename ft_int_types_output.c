@@ -6,7 +6,7 @@
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 15:17:49 by larlena           #+#    #+#             */
-/*   Updated: 2020/12/13 16:08:17 by larlena          ###   ########.fr       */
+/*   Updated: 2020/12/14 13:43:18 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ int				ft_int_types_output(int n, t_printf *all)
 {
 	char	*num;
 	char	*dst;
+	char	*tmp;
 
 	if (!(num = ft_itoa(n, 10)))
 		return (1);
@@ -88,7 +89,15 @@ int				ft_int_types_output(int n, t_printf *all)
 		return (1);
 	}
 	ft_filling_array(dst, num, all);
+	if (all->f_dot && !all->presigion && !n)
+	{
+		tmp = ft_strchr(dst, '0');
+		*tmp = ' ';
+		if (!all->width)
+			*tmp = '\0';
+	}
 	ft_putstr_fd(dst, FD_TERM);
+	all->str_size += ft_strlen(dst);
 	free(num);
 	free(dst);
 	return (0);

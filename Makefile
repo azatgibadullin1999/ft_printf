@@ -10,6 +10,7 @@ MAIN_C =	ft_printf.c\
 			ft_memset.c\
 			ft_putchar_fd.c\
 			ft_putstr_fd.c\
+			ft_strchr.c\
 			ft_strdup.c\
 			ft_strjoin.c\
 			ft_strlcat.c\

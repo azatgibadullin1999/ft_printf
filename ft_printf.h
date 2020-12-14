@@ -6,7 +6,7 @@
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 17:51:31 by larlena           #+#    #+#             */
-/*   Updated: 2020/12/13 18:21:08 by larlena          ###   ########.fr       */
+/*   Updated: 2020/12/14 13:16:41 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct	s_pritnf
 	va_list		ap;
 	size_t		i;
 	size_t		str_size;
-	size_t		num_len;	
+	size_t		num_len;
 	int			f_minus;
 	int			f_zero;
 	int			f_dot;
@@ -54,6 +54,7 @@ void			*ft_memcpy(void *dst, const void *src, size_t n);
 void			*ft_memset(void *b, int c, size_t len);
 void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char *s, int fd);
+char			*ft_strchr(const char *s, int c);
 char			*ft_strdup(const char *s1);
 char			*ft_strjoin(char *s1, char *s2);
 size_t			ft_strlcat(char *dst, const char *src, size_t dstsize);

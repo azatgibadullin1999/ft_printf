@@ -6,7 +6,7 @@
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 17:09:38 by larlena           #+#    #+#             */
-/*   Updated: 2020/11/30 13:48:11 by larlena          ###   ########.fr       */
+/*   Updated: 2020/12/14 12:57:57 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int		ft_printf(const char *format, ...)
 	t_printf	all;
 
 	all.i = 0;
+	all.str_size = 0;
 	va_start(all.ap, format);
 	while (format[all.i])
 	{
@@ -27,7 +28,10 @@ int		ft_printf(const char *format, ...)
 			ft_parser(format, &all);
 		}
 		else
+		{
 			ft_putchar_fd(format[all.i], FD_TERM);
+			all.str_size++;
+		}
 		all.i++;
 	}
 	return (all.str_size);

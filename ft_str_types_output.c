@@ -6,7 +6,7 @@
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 16:27:56 by larlena           #+#    #+#             */
-/*   Updated: 2020/12/13 16:08:10 by larlena          ###   ########.fr       */
+/*   Updated: 2020/12/13 18:35:59 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int				ft_str_types_output(char *str, t_printf *all)
 	if (!(dst = ft_str_creation(str, all)))
 		return (1);
 	ft_putstr_fd(dst, FD_TERM);
+	all->str_size += ft_strlen(dst);
 	if (f_null)
 		free(str);
 	free(dst);
