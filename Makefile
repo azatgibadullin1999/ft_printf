@@ -17,6 +17,7 @@ MAIN_C =	ft_printf.c\
 			ft_strlcpy.c\
 			ft_strlen.c\
 			ft_toupper.c\
+			ft_percent_output.c\
 			ft_char_types_output.c\
 			ft_str_types_output.c\
 			ft_hex_types_output.c\

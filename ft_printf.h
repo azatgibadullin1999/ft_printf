@@ -6,7 +6,7 @@
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 17:51:31 by larlena           #+#    #+#             */
-/*   Updated: 2020/12/14 13:16:41 by larlena          ###   ########.fr       */
+/*   Updated: 2020/12/14 14:31:54 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 # define FD_TERM 1
 
-typedef struct	s_pritnf
+typedef struct	s_printf
 {
 	va_list		ap;
 	size_t		i;
@@ -45,6 +45,7 @@ int				ft_pointer_types_output(void *p, t_printf *all);
 int				ft_int_types_output(int n, t_printf *all);
 int				ft_hex_types_output(unsigned int n, int reg, t_printf *all);
 int				ft_unsigned_types_output(unsigned int n, t_printf *all);
+int				ft_percent_output(t_printf *all);
 
 int				ft_atoi(const char *str);
 void			*ft_calloc(size_t count, size_t size);

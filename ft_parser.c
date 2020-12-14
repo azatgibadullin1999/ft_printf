@@ -6,7 +6,7 @@
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 20:03:10 by larlena           #+#    #+#             */
-/*   Updated: 2020/12/14 13:31:27 by larlena          ###   ########.fr       */
+/*   Updated: 2020/12/14 14:38:10 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,7 @@ int		ft_arg_type_parsing(const char *format, t_printf *all)
 	else if (format[all->i] == 'X')
 		return (ft_hex_types_output(va_arg(all->ap, unsigned int), 1, all));
 	else if (format[all->i] == '%')
-	{
-		ft_putchar_fd('%', FD_TERM);
-		return (0);
-	}
+		return (ft_percent_output(all));
 	else
 		return (1);
 }

@@ -6,23 +6,20 @@
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 15:17:49 by larlena           #+#    #+#             */
-/*   Updated: 2020/12/14 13:43:18 by larlena          ###   ########.fr       */
+/*   Updated: 2020/12/14 15:18:27 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void		ft_insert_minus(char *dst, t_printf *all)
+static void		ft_insert_minus(char *dst)
 {
 	size_t	i;
 
 	i = 0;
 	while (!ft_isdigit(dst[i]))
 		i++;
-	if (i == 0 || !all->f_dot)
-		dst[i] = '-';
-	else
-		dst[i - 1] = '-';
+	dst[i] = '-';
 }
 
 static void		ft_filling_array(char *dst, char *num, t_printf *all)
@@ -32,14 +29,10 @@ static void		ft_filling_array(char *dst, char *num, t_printf *all)
 	int		f_minus;
 
 	dst_size = ft_strlen(dst);
+	f_minus = *num == '-' ? 1 && num++ : 0;
 	num_size = all->presigion > (int)ft_strlen(num) ?
 	all->presigion : ft_strlen(num);
-	f_minus = 0;
-	if (*num == '-')
-	{
-		num++;
-		f_minus = 1;
-	}
+	num_size += f_minus;
 	if (all->f_minus && all->width)
 	{
 		ft_memset(dst, '0', num_size);
@@ -51,7 +44,7 @@ static void		ft_filling_array(char *dst, char *num, t_printf *all)
 		ft_memcpy(&dst[dst_size - ft_strlen(num)], num, ft_strlen(num));
 	}
 	if (f_minus)
-		ft_insert_minus(dst, all);
+		ft_insert_minus(dst);
 }
 
 static char		*ft_counting_dst_len(char *num, t_printf *all)
@@ -92,9 +85,7 @@ int				ft_int_types_output(int n, t_printf *all)
 	if (all->f_dot && !all->presigion && !n)
 	{
 		tmp = ft_strchr(dst, '0');
-		*tmp = ' ';
-		if (!all->width)
-			*tmp = '\0';
+		*tmp = !all->width ? '\0' : ' ';
 	}
 	ft_putstr_fd(dst, FD_TERM);
 	all->str_size += ft_strlen(dst);
