@@ -6,7 +6,7 @@
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 15:17:49 by larlena           #+#    #+#             */
-/*   Updated: 2020/12/14 15:28:25 by larlena          ###   ########.fr       */
+/*   Updated: 2020/12/15 15:12:44 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,13 @@ static char		*ft_counting_dst_len(char *num, t_printf *all)
 	len = ft_strlen(num);
 	dst_len = (int)len > all->presigion ? len : all->presigion;
 	dst_len = all->width > (int)dst_len ? all->width : dst_len;
-	dst_len += all->presigion > all->width &&
+	dst_len += all->presigion >= all->width &&
 	(int)len <= all->presigion && *num == '-' ? 1 : 0;
 	if (!(dst = malloc(sizeof(char) * (dst_len + 1))))
 		return (NULL);
 	dst[dst_len] = '\0';
-	if (all->f_zero && all->width && all->presigion < all->width && !all->f_dot)
+	if (all->f_zero && all->width &&
+	all->presigion < all->width && !all->f_dot && !all->f_minus)
 		ft_memset(dst, '0', dst_len);
 	else
 		ft_memset(dst, ' ', dst_len);

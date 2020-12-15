@@ -6,7 +6,7 @@
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 14:30:17 by larlena           #+#    #+#             */
-/*   Updated: 2020/12/14 14:44:25 by larlena          ###   ########.fr       */
+/*   Updated: 2020/12/15 16:13:07 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ int		ft_percent_output(t_printf *all)
 	}
 	ft_putstr_fd(dst, FD_TERM);
 	all->str_size += ft_strlen(dst);
+	free(dst);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 22:06:40 by larlena           #+#    #+#             */
-/*   Updated: 2020/12/13 18:27:45 by larlena          ###   ########.fr       */
+/*   Updated: 2020/12/15 16:03:17 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int				ft_char_types_output(int c, t_printf *all)
 		str[ar_size - 1] = (char)c;
 		ft_castom_putstr_fd(str, FD_TERM, ar_size);
 	}
-	all->str_size += ft_strlen(str);
+	all->str_size += ar_size;
 	free(str);
 	return (0);
 }
